@@ -10,7 +10,7 @@ bool UniqueMacStat::operator==(const UniqueMacStat &obj) const
     thisMac <<= 8;
     objMac = obj.dstMac[0];
     objMac <<= 8;
-    for(u_int i = 0; i < 5; ++i)
+    for(u_int i = 0; i < 6; ++i)
     {
         thisMac += dstMac[i];
         thisMac <<= 8;
@@ -27,7 +27,7 @@ bool UniqueMacStat::operator<(const UniqueMacStat &obj) const
     thisMac <<= 8;
     objMac = obj.dstMac[0];
     objMac <<= 8;
-    for(u_int i = 0; i < 5; ++i)
+    for(u_int i = 0; i < 6; ++i)
     {
         thisMac += dstMac[i];
         thisMac <<= 8;

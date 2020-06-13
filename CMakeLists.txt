@@ -16,12 +16,25 @@ set(EXECUTABLE_OUTPUT_PATH ${dir})
 set(LIBRARY_OUTPUT_PATH ${dir}/lib)
 set(CMAKE_CACHEFILE_DIR ${dir})
 
-add_definitions(-DTEST)
+#add_definitions(-DTEST_APP)
+
+get_directory_property(DEFS COMPILE_DEFINITIONS)
+
+if(DEFS MATCHES "TEST_APP")
+    add_subdirectory(lib/googletest/)
+    include_directories(lib/googletest/googletest/include)
+    include_directories(lib/googletest/googlemock/include)
+endif()
 
 add_subdirectory(lib/libpcap-1.9.1)
-include_directories("lib/libpcap-1.9.1")
+include_directories(lib/libpcap-1.9.1)
 
 add_subdirectory(src/)
-include_directories("src/")
+include_directories(src/)
+
+
+
+
+
 
 

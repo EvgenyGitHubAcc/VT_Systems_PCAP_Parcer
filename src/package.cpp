@@ -1,13 +1,13 @@
 #include "package.h"
 
-bool Package::operator==(Package &obj) const
+bool Package::operator==(const Package &obj) const
 {
     unsigned long long thisMac = 0, objMac = 0;
     thisMac = dstMac[0];
     thisMac <<= 8;
     objMac = obj.dstMac[0];
     objMac <<= 8;
-    for(u_int i = 0; i < 5; ++i)
+    for(u_int i = 0; i < 6; ++i)
     {
         thisMac += dstMac[i];
         thisMac <<= 8;
@@ -17,14 +17,14 @@ bool Package::operator==(Package &obj) const
     return thisMac == objMac;
 }
 
-bool Package::operator<(Package &obj) const
+bool Package::operator<(const Package &obj) const
 {
     unsigned long long thisMac = 0, objMac = 0;
     thisMac = dstMac[0];
     thisMac <<= 8;
     objMac = obj.dstMac[0];
     objMac <<= 8;
-    for(u_int i = 0; i < 5; ++i)
+    for(u_int i = 0; i < 6; ++i)
     {
         thisMac += dstMac[i];
         thisMac <<= 8;

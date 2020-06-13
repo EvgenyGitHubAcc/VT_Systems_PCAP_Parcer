@@ -2,6 +2,7 @@
 
 int main(void)
 {
+#ifndef TEST_APP
     std::list<Package> packList;
     std::list<UniqueMacStat> uniqueMacs;
     readPcapFile(packList);
@@ -9,6 +10,10 @@ int main(void)
     calcStatistics(packList, uniqueMacs);
     printStat(uniqueMacs);
     return 0;
+#else
+    ::testing::InitGoogleTest();
+      return RUN_ALL_TESTS();
+#endif
 }
 
 void printStat(std::list<UniqueMacStat> &uniqueDstMac)
@@ -81,6 +86,8 @@ void readPcapFile(std::list<Package> & packList)
 
 #endif
 
+#ifndef TEST_APP
+
     if(pcap == nullptr)
     {
         std::cout << "Error open pcap file" << std::endl;
@@ -88,6 +95,8 @@ void readPcapFile(std::list<Package> & packList)
     }
 
     std::cout << "Pcap file opened" << std::endl;
+
+#endif
 
     struct pcap_pkthdr *header;
     const u_char *data;

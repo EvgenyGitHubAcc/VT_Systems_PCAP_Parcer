@@ -12,6 +12,10 @@
 #include "package.h"
 #include "uniquemacstat.h"
 
+#ifdef TEST_APP
+#include <gtest/gtest.h>
+#endif
+
 struct UniqueMacStat;
 struct Package;
 
