@@ -1,0 +1,2 @@
+add_executable(VT_Systems_PCAP_Parcer main.cpp uniquemacstat.cpp package.cpp)
+target_link_libraries(VT_Systems_PCAP_Parcer pcap)
