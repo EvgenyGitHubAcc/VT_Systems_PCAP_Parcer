@@ -9,6 +9,7 @@ int main(void)
     findUniqueMacs(packList, uniqueMacs);
     calcStatistics(packList, uniqueMacs);
     printStat(uniqueMacs);
+    system("pause");
     return 0;
 #else
     ::testing::InitGoogleTest();
