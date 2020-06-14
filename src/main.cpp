@@ -78,7 +78,7 @@ void readPcapFile(std::list<Package> & packList)
 {
     char errbuff[PCAP_ERRBUF_SIZE];
     pcap_t * pcap = nullptr;
-#ifndef TEST
+#ifndef TEST_APP
     pcap = pcap_open_offline("../WS_file.pcap", errbuff);
 
 #else

@@ -12,14 +12,14 @@ TEST(TroubleWithFile, OpenFile)             //Try to open test file (../WS_file_
 }
 
 
-TEST(CheckFile, IsEmpty)                    //Check for test file open
+TEST(CheckFile, IsEmpty)                    //Check for test file empty
 {
     std::list<Package> packList;
     readPcapFile(packList);
     ASSERT_EQ(0, packList.empty());
 }
 
-TEST(MacToStrFunc, CorrResult)           //Check for MAC conversion from u_char array to string (00:00:00:00:00:00)
+TEST(MacToStrFunc, CorrResult)              //Check for MAC conversion from u_char array to string (00:00:00:00:00:00)
 {
     const u_char macData[6] = {0, 0, 0, 0, 0, 0};
     std::string outStr;
@@ -56,7 +56,7 @@ TEST(CalcStatMacsFunc, CorrOuputValues)     //Check for function that calculates
     ASSERT_EQ(115352, std::next(uniqueMacs.begin())->size);
 }
 
-TEST(PackageTest, OperatorIsEqTrue)     //Check for Package operator==
+TEST(PackageTest, OperatorIsEqTrue)         //Check for Package operator==
 {
     Package packLeft, packRight;
     u_char dstMacLeft[7] = {0, 0, 0, 0, 0, 0};
@@ -66,7 +66,7 @@ TEST(PackageTest, OperatorIsEqTrue)     //Check for Package operator==
     ASSERT_EQ(packLeft, packRight);
 }
 
-TEST(PackageTest, OperatorIsEqFalse)     //Check for Package operator==
+TEST(PackageTest, OperatorIsEqFalse)        //Check for Package operator==
 {
     Package packLeft, packRight;
     u_char dstMacLeft[7] = {0, 0, 0, 0, 0, 10};
@@ -76,7 +76,7 @@ TEST(PackageTest, OperatorIsEqFalse)     //Check for Package operator==
     ASSERT_FALSE(packLeft == packRight);
 }
 
-TEST(PackageTest, OperatorLessTrue)     //Check for Package operator<
+TEST(PackageTest, OperatorLessTrue)         //Check for Package operator<
 {
     Package packLeft, packRight;
     u_char dstMacLeft[7] = {0, 0, 0, 0, 0, 0};
@@ -106,7 +106,7 @@ TEST(PackageTest, OperatorLessFalseEq)     //Check for Package operator<
     ASSERT_FALSE(packLeft < packRight);
 }
 
-TEST(PackageTest, DstMacToStr)     //Check for function dstMacToStr()
+TEST(PackageTest, DstMacToStr)              //Check for function dstMacToStr()
 {
     Package pack;
     u_char dstMac[7] = {0, 0, 0, 0, 0, 0};
@@ -114,7 +114,7 @@ TEST(PackageTest, DstMacToStr)     //Check for function dstMacToStr()
     ASSERT_EQ("00:00:00:00:00:00", pack.dstMacToStr());
 }
 
-TEST(UniqueMacStat, OperatorIsEqTrue)     //Check for UniqueMacStat operator==
+TEST(UniqueMacStat, OperatorIsEqTrue)       //Check for UniqueMacStat operator==
 {
     UniqueMacStat statLeft, statRight;
     u_char dstMacLeft[7] = {0, 0, 0, 0, 0, 0};
@@ -124,7 +124,7 @@ TEST(UniqueMacStat, OperatorIsEqTrue)     //Check for UniqueMacStat operator==
     ASSERT_EQ(statLeft, statRight);
 }
 
-TEST(UniqueMacStat, OperatorIsEqFalse)     //Check for UniqueMacSta operator==
+TEST(UniqueMacStat, OperatorIsEqFalse)      //Check for UniqueMacSta operator==
 {
     UniqueMacStat statLeft, statRight;
     u_char dstMacLeft[7] = {0, 0, 0, 0, 0, 10};
@@ -134,7 +134,7 @@ TEST(UniqueMacStat, OperatorIsEqFalse)     //Check for UniqueMacSta operator==
     ASSERT_FALSE(statLeft == statRight);
 }
 
-TEST(UniqueMacStat, OperatorLessTrue)     //Check for UniqueMacSta operator<
+TEST(UniqueMacStat, OperatorLessTrue)       //Check for UniqueMacSta operator<
 {
     UniqueMacStat statLeft, statRight;
     u_char dstMacLeft[7] = {0, 0, 0, 0, 0, 0};
@@ -164,7 +164,7 @@ TEST(UniqueMacStat, OperatorLessFalseEq)     //Check for UniqueMacSta operator<
     ASSERT_FALSE(statLeft < statRight);
 }
 
-TEST(UniqueMacStat, DstMacToString)     //Check for function dstMacToString()
+TEST(UniqueMacStat, DstMacToString)         //Check for function dstMacToString()
 {
     UniqueMacStat stat;
     u_char dstMac[7] = {0, 0, 0, 0, 0, 0};
